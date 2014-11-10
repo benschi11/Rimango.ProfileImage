@@ -1,9 +1,9 @@
 ﻿Name: Rimango.ProfileImage
 AntiForgery: enabled
-Author: The Orchard Team
-Website: http://orchardproject.net
-Version: 1.0
-OrchardVersion: 1.8
+Author: Rimango Development
+Website: http://orchard-demos.neuhold.pro
+Version: 1.9
+OrchardVersion: 1.9
 Description: Description for the module
 Features:
     Rimango.ProfileImage:
