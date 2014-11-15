@@ -36,5 +36,16 @@ namespace Rimango.ProfileImage {
 
             return 1;
         }
+
+        public int UpdateFrom1() {
+            ContentDefinitionManager.AlterPartDefinition(Globals.PartName,
+                    p => p.WithField(Globals.ImageFieldName,
+                                                f => f.OfType(Globals.ImageFieldTypeName)
+                                                        .WithSetting("ImageFieldSettings.DefaultImage", "http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mm")
+                                                        )
+                        );
+
+            return 2;
+        }
     }
 }
