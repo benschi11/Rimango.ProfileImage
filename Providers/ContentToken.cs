@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Orchard.ContentManagement;
+using Orchard.Environment.Extensions;
+using Orchard.Localization;
+using Orchard.Tokens;
+using Rimango.ProfileImage.Models;
 
 namespace Rimango.ProfileImage.Providers
 {
-    using Orchard.ContentManagement;
-    using Orchard.Localization;
-    using Orchard.Tokens;
-
-    using Rimango.ProfileImage.Models;
-
     public class ContentToken : ITokenProvider
     {
         private IContentManager _contentManager;

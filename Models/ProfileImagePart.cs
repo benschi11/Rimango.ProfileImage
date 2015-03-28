@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
+using Orchard.ContentManagement;
+using Orchard.Environment.Extensions;
 
 namespace Rimango.ProfileImage.Models
 {
-    using Orchard.ContentManagement;
-
-    using Rimango.ImageField.Fields;
-
     public class ProfileImagePart : ContentPart<ProfileImagePartRecord>
     {
         public bool HasProfileImage
@@ -32,9 +27,9 @@ namespace Rimango.ProfileImage.Models
             }
         }
 
-        private ImageField GetPartImageField()
+        private ImageField.Fields.ImageField GetPartImageField()
         {
-            return (ImageField)this.Fields.FirstOrDefault(f => f.Name == Globals.ImageFieldName);
+            return (ImageField.Fields.ImageField)this.Fields.FirstOrDefault(f => f.Name == Globals.ImageFieldName);
         }
 
         public string PublicImageUrl

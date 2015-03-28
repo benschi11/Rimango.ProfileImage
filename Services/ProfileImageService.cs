@@ -1,22 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Web;
-using Rimango.ImageField.Fields;
+using Orchard.ContentManagement;
+using Orchard.Environment.Extensions;
+using Orchard.Logging;
+using Orchard.MediaLibrary.Services;
+using Orchard.Tokens;
+using Rimango.ImageField.Settings;
 
 namespace Rimango.ProfileImage.Services
 {
-    using System.IO;
-
-    using Orchard.ContentManagement;
-    using Orchard.Logging;
-    using Orchard.MediaLibrary.Services;
-    using Orchard.Tokens;
-
-    using Rimango.ImageField.Settings;
-
-    using ImageField = Rimango.ImageField.Fields.ImageField;
-
     public class ProfileImageService : IProfileImageService
     {
         private readonly IContentManager _contentManager;
@@ -31,8 +25,7 @@ namespace Rimango.ProfileImage.Services
             IContentManager contentManager, 
             IMediaLibraryService mediaLibraryService, 
             ITokenizer tokenizer,
-            ILogger logger)
-        {
+            ILogger logger) {
             _contentManager = contentManager;
             _mediaLibraryService = mediaLibraryService;
             _tokenizer = tokenizer;
@@ -71,7 +64,7 @@ namespace Rimango.ProfileImage.Services
 
         }
 
-        private static ImageField GetProfileImageFieldFromContentItem(ContentItem contentItem)
+        private static ImageField.Fields.ImageField GetProfileImageFieldFromContentItem(ContentItem contentItem)
         {
             var profileImagePart = contentItem.Parts.FirstOrDefault(p => p.PartDefinition.Name == Globals.PartName);
 
@@ -83,7 +76,7 @@ namespace Rimango.ProfileImage.Services
 
             var imageField =
                 profileImagePart.Fields.FirstOrDefault(f => f.Name == Globals.ImageFieldName) as
-                Rimango.ImageField.Fields.ImageField;
+                ImageField.Fields.ImageField;
 
             if (imageField == null)
             {
